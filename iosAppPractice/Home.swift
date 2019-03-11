@@ -15,15 +15,18 @@ class Home: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
     }
     @IBAction func onButtonWeather(_ sender: Any) {
-        
-        let storyboard: UIStoryboard = UIStoryboard(name: "weatherPage", bundle: nil)
-        let nextViewController = storyboard.instantiateInitialViewController()!
-        present(nextViewController, animated: true, completion: nil)
+     
+        moveToNextPage(nextStoryboardName: "weatherPage")
     }
     
     @IBAction func onButtonDB(_ sender: Any) {
         
-        let storyboard: UIStoryboard = UIStoryboard(name: "DBAccessPage", bundle: nil)
+        moveToNextPage(nextStoryboardName: "DBAccessPage")
+    }
+    
+    private func moveToNextPage(nextStoryboardName name: String) {
+        
+        let storyboard: UIStoryboard = UIStoryboard(name: name, bundle: nil)
         let nextViewController = storyboard.instantiateInitialViewController()!
         present(nextViewController, animated: true, completion: nil)
     }
