@@ -43,6 +43,9 @@
                                         <integer key="value" value="5"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="onButtonQR:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Szt-30-HvM"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7hY-MR-7Wj">
                                 <rect key="frame" x="52.5" y="238" width="270" height="44"/>

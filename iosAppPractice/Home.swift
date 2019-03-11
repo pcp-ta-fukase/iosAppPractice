@@ -14,6 +14,11 @@ class Home: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
     }
+    
+    @IBAction func onButtonQR(_ sender: Any) {
+        
+    }
+    
     @IBAction func onButtonWeather(_ sender: Any) {
      
         moveToNextPage(nextStoryboardName: "weatherPage")
