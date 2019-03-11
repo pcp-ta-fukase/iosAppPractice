@@ -14,5 +14,18 @@ class Home: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
     }
+    @IBAction func onButtonWeather(_ sender: Any) {
+        
+        let storyboard: UIStoryboard = UIStoryboard(name: "weatherPage", bundle: nil)
+        let nextViewController = storyboard.instantiateInitialViewController()!
+        present(nextViewController, animated: true, completion: nil)
+    }
+    
+    @IBAction func onButtonDB(_ sender: Any) {
+        
+        let storyboard: UIStoryboard = UIStoryboard(name: "DBAccessPage", bundle: nil)
+        let nextViewController = storyboard.instantiateInitialViewController()!
+        present(nextViewController, animated: true, completion: nil)
+    }
 }
 
