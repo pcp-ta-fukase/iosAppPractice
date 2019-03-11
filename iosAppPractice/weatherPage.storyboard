@@ -13,11 +13,26 @@
         <!--Weather Page-->
         <scene sceneID="nk4-bZ-DWr">
             <objects>
-                <viewController id="Z2v-YO-kmh" customClass="weatherPage" customModule="iosAppPractice" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="weatherPage" id="Z2v-YO-kmh" customClass="weatherPage" customModule="iosAppPractice" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ecb-19-RvX">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ver-qs-TJX">
+                                <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                                <items>
+                                    <navigationItem title="API" id="4Nl-zK-byp">
+                                        <barButtonItem key="leftBarButtonItem" title="戻る" id="NCA-Zr-JJI"/>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="ver-qs-TJX" firstAttribute="leading" secondItem="kXm-QF-1FE" secondAttribute="leading" id="94d-Jb-QhV"/>
+                            <constraint firstItem="ver-qs-TJX" firstAttribute="top" secondItem="kXm-QF-1FE" secondAttribute="top" id="e7c-5f-aVw"/>
+                            <constraint firstItem="ver-qs-TJX" firstAttribute="trailing" secondItem="kXm-QF-1FE" secondAttribute="trailing" id="kxn-4I-J3R"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="kXm-QF-1FE"/>
                     </view>
                 </viewController>

@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  Home.swift
 //  iosAppPractice
 //
 //  Created by ta_fukase on 2019/03/11.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class QRReadingPage: UIViewController {
+class Home: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
