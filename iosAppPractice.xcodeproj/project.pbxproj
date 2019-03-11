@@ -14,6 +14,10 @@
 		2CFBB27B2235FD82008BCB4D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2CFBB2792235FD82008BCB4D /* LaunchScreen.storyboard */; };
 		2CFBB283223629A9008BCB4D /* QRReadingPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CFBB282223629A9008BCB4D /* QRReadingPage.swift */; };
 		2CFBB285223629DA008BCB4D /* QRReadingPage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2CFBB284223629DA008BCB4D /* QRReadingPage.storyboard */; };
+		2CFBB28722362D86008BCB4D /* weatherPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CFBB28622362D86008BCB4D /* weatherPage.swift */; };
+		2CFBB28922362D96008BCB4D /* weatherPage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2CFBB28822362D96008BCB4D /* weatherPage.storyboard */; };
+		2CFBB28B22362E45008BCB4D /* DBAccessPage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2CFBB28A22362E45008BCB4D /* DBAccessPage.storyboard */; };
+		2CFBB28D22362E59008BCB4D /* DBAccessPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CFBB28C22362E59008BCB4D /* DBAccessPage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +30,10 @@
 		2CFBB27C2235FD82008BCB4D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2CFBB282223629A9008BCB4D /* QRReadingPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRReadingPage.swift; sourceTree = "<group>"; };
 		2CFBB284223629DA008BCB4D /* QRReadingPage.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = QRReadingPage.storyboard; sourceTree = "<group>"; };
+		2CFBB28622362D86008BCB4D /* weatherPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = weatherPage.swift; sourceTree = "<group>"; };
+		2CFBB28822362D96008BCB4D /* weatherPage.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = weatherPage.storyboard; sourceTree = "<group>"; };
+		2CFBB28A22362E45008BCB4D /* DBAccessPage.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DBAccessPage.storyboard; sourceTree = "<group>"; };
+		2CFBB28C22362E59008BCB4D /* DBAccessPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBAccessPage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +71,10 @@
 				2CFBB2742235FD81008BCB4D /* Home.storyboard */,
 				2CFBB282223629A9008BCB4D /* QRReadingPage.swift */,
 				2CFBB284223629DA008BCB4D /* QRReadingPage.storyboard */,
+				2CFBB28622362D86008BCB4D /* weatherPage.swift */,
+				2CFBB28822362D96008BCB4D /* weatherPage.storyboard */,
+				2CFBB28C22362E59008BCB4D /* DBAccessPage.swift */,
+				2CFBB28A22362E45008BCB4D /* DBAccessPage.storyboard */,
 				2CFBB2772235FD82008BCB4D /* Assets.xcassets */,
 				2CFBB2792235FD82008BCB4D /* LaunchScreen.storyboard */,
 				2CFBB27C2235FD82008BCB4D /* Info.plist */,
@@ -129,8 +141,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				2CFBB27B2235FD82008BCB4D /* LaunchScreen.storyboard in Resources */,
+				2CFBB28B22362E45008BCB4D /* DBAccessPage.storyboard in Resources */,
 				2CFBB285223629DA008BCB4D /* QRReadingPage.storyboard in Resources */,
 				2CFBB2782235FD82008BCB4D /* Assets.xcassets in Resources */,
+				2CFBB28922362D96008BCB4D /* weatherPage.storyboard in Resources */,
 				2CFBB2762235FD81008BCB4D /* Home.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -143,6 +157,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				2CFBB283223629A9008BCB4D /* QRReadingPage.swift in Sources */,
+				2CFBB28722362D86008BCB4D /* weatherPage.swift in Sources */,
+				2CFBB28D22362E59008BCB4D /* DBAccessPage.swift in Sources */,
 				2CFBB2732235FD81008BCB4D /* Home.swift in Sources */,
 				2CFBB2712235FD81008BCB4D /* AppDelegate.swift in Sources */,
 			);
