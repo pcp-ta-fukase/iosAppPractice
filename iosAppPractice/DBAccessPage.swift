@@ -6,4 +6,13 @@
 //  Copyright © 2019 ta_fukase. All rights reserved.
 //
 
-import Foundation
+
+import UIKit
+
+class DBAccessPage: UIViewController {
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        // Do any additional setup after loading the view, typically from a nib.
+    }
+}
