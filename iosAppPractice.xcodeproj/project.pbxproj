@@ -12,6 +12,8 @@
 		2CFBB2762235FD81008BCB4D /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2CFBB2742235FD81008BCB4D /* Home.storyboard */; };
 		2CFBB2782235FD82008BCB4D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2CFBB2772235FD82008BCB4D /* Assets.xcassets */; };
 		2CFBB27B2235FD82008BCB4D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2CFBB2792235FD82008BCB4D /* LaunchScreen.storyboard */; };
+		2CFBB283223629A9008BCB4D /* QRReadingPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CFBB282223629A9008BCB4D /* QRReadingPage.swift */; };
+		2CFBB285223629DA008BCB4D /* QRReadingPage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2CFBB284223629DA008BCB4D /* QRReadingPage.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +24,8 @@
 		2CFBB2772235FD82008BCB4D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2CFBB27A2235FD82008BCB4D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2CFBB27C2235FD82008BCB4D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2CFBB282223629A9008BCB4D /* QRReadingPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRReadingPage.swift; sourceTree = "<group>"; };
+		2CFBB284223629DA008BCB4D /* QRReadingPage.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = QRReadingPage.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +61,8 @@
 				2CFBB2702235FD81008BCB4D /* AppDelegate.swift */,
 				2CFBB2722235FD81008BCB4D /* Home.swift */,
 				2CFBB2742235FD81008BCB4D /* Home.storyboard */,
+				2CFBB282223629A9008BCB4D /* QRReadingPage.swift */,
+				2CFBB284223629DA008BCB4D /* QRReadingPage.storyboard */,
 				2CFBB2772235FD82008BCB4D /* Assets.xcassets */,
 				2CFBB2792235FD82008BCB4D /* LaunchScreen.storyboard */,
 				2CFBB27C2235FD82008BCB4D /* Info.plist */,
@@ -123,6 +129,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2CFBB27B2235FD82008BCB4D /* LaunchScreen.storyboard in Resources */,
+				2CFBB285223629DA008BCB4D /* QRReadingPage.storyboard in Resources */,
 				2CFBB2782235FD82008BCB4D /* Assets.xcassets in Resources */,
 				2CFBB2762235FD81008BCB4D /* Home.storyboard in Resources */,
 			);
@@ -135,6 +142,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2CFBB283223629A9008BCB4D /* QRReadingPage.swift in Sources */,
 				2CFBB2732235FD81008BCB4D /* Home.swift in Sources */,
 				2CFBB2712235FD81008BCB4D /* AppDelegate.swift in Sources */,
 			);

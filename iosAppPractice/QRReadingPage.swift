@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  QRReadingPage.swift
 //  iosAppPractice
 //
 //  Created by ta_fukase on 2019/03/11.
@@ -8,11 +8,12 @@
 
 import UIKit
 
-class QRReadingPage: UIViewController {
-
+class ViewController: UIViewController {
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
     }
+    
+    
 }
-
