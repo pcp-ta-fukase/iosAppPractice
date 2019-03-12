@@ -10,9 +10,13 @@ import UIKit
 
 class QRResultPage: UIViewController {
     
+    @IBOutlet weak var QRStringValueLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        QRStringValueLabel.text = CommonValue.QRStringValue
     }
     
     @IBAction func onButtonBack(_ sender: Any) {

@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		2C3A0BF32237535E00CB546B /* QRResultPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C3A0BF22237535E00CB546B /* QRResultPage.swift */; };
 		2C3A0BF52237537000CB546B /* QRResultPage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2C3A0BF42237537000CB546B /* QRResultPage.storyboard */; };
+		2C3A0BF72237578600CB546B /* CommonValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C3A0BF62237578600CB546B /* CommonValue.swift */; };
 		2CFBB2712235FD81008BCB4D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CFBB2702235FD81008BCB4D /* AppDelegate.swift */; };
 		2CFBB2732235FD81008BCB4D /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CFBB2722235FD81008BCB4D /* Home.swift */; };
 		2CFBB2762235FD81008BCB4D /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2CFBB2742235FD81008BCB4D /* Home.storyboard */; };
@@ -25,6 +26,7 @@
 /* Begin PBXFileReference section */
 		2C3A0BF22237535E00CB546B /* QRResultPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRResultPage.swift; sourceTree = "<group>"; };
 		2C3A0BF42237537000CB546B /* QRResultPage.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = QRResultPage.storyboard; sourceTree = "<group>"; };
+		2C3A0BF62237578600CB546B /* CommonValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonValue.swift; sourceTree = "<group>"; };
 		2CFBB26D2235FD81008BCB4D /* iosAppPractice.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iosAppPractice.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2CFBB2702235FD81008BCB4D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2CFBB2722235FD81008BCB4D /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
@@ -71,6 +73,7 @@
 			isa = PBXGroup;
 			children = (
 				2CFBB2702235FD81008BCB4D /* AppDelegate.swift */,
+				2C3A0BF62237578600CB546B /* CommonValue.swift */,
 				2CFBB2722235FD81008BCB4D /* Home.swift */,
 				2CFBB2742235FD81008BCB4D /* Home.storyboard */,
 				2CFBB282223629A9008BCB4D /* QRReadingPage.swift */,
@@ -166,6 +169,7 @@
 				2CFBB283223629A9008BCB4D /* QRReadingPage.swift in Sources */,
 				2CFBB28722362D86008BCB4D /* weatherPage.swift in Sources */,
 				2C3A0BF32237535E00CB546B /* QRResultPage.swift in Sources */,
+				2C3A0BF72237578600CB546B /* CommonValue.swift in Sources */,
 				2CFBB28D22362E59008BCB4D /* DBAccessPage.swift in Sources */,
 				2CFBB2732235FD81008BCB4D /* Home.swift in Sources */,
 				2CFBB2712235FD81008BCB4D /* AppDelegate.swift in Sources */,

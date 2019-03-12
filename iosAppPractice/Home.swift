@@ -109,30 +109,17 @@ class Home: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
     
     func metadataOutput(_ output: AVCaptureMetadataOutput, didOutput metadataObjects: [AVMetadataObject], from connection: AVCaptureConnection) {
         for metadata in metadataObjects as! [AVMetadataMachineReadableCodeObject] {
+            
             // QRコードのデータかどうかの確認
-            if metadata.type != .qr { continue }
+            guard metadata.type == .qr else { continue }
             
-            // QRコードの内容が空かどうかの確認
-            if metadata.stringValue == nil { continue }
+            // QRコードの内容に中身があるか確認
+            guard let str = metadata.stringValue else { continue }
             
-            /*
-             このあたりで取得したQRコードを使ってゴニョゴニョする
-             読み取りの終了・再開のタイミングは用途によって制御が異なるので注意
-             以下はQRコードに紐づくWebサイトをSafariで開く例
-             */
-            
-            // URLかどうかの確認
-            if let url = URL(string: metadata.stringValue!) {
-                  //TODO: URLを取得した後の処理を実装する -> 現状はとりあえずweatherPageに遷移するようにしている
-//                // 読み取り終了
-//                self.session.stopRunning()
-//                // QRコードに紐付いたURLをSafariで開く
-//                UIApplication.shared.open(url, options: [:], completionHandler: nil)
-                
-                moveToNextPage(nextStoryboardName: "QRResultPage")
-
-                break
-            }
+            //画面間共通で参照できる変数に値を格納した上で画面遷移
+            CommonValue.QRStringValue = str
+            moveToNextPage(nextStoryboardName: "QRResultPage")
+            break
         }
     }
     

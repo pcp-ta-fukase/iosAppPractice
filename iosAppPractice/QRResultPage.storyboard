@@ -46,6 +46,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="MxR-ec-OJg"/>
                     </view>
+                    <connections>
+                        <outlet property="QRStringValueLabel" destination="nZ7-uc-KE2" id="3bV-IC-5h4"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="M4s-7N-6wr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
