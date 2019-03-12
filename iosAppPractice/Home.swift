@@ -20,6 +20,21 @@ class Home: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
     
     @IBAction func onButtonQR(_ sender: Any) {
         
+        showQRCodeReader()
+    }
+    
+    @IBAction func onButtonWeather(_ sender: Any) {
+     
+        moveToNextPage(nextStoryboardName: "weatherPage")
+    }
+    
+    @IBAction func onButtonDB(_ sender: Any) {
+        
+        moveToNextPage(nextStoryboardName: "DBAccessPage")
+    }
+    
+    private func showQRCodeReader() {
+        
         // カメラやマイクのデバイスそのものを管理するオブジェクトを生成（ここではワイドアングルカメラ・ビデオ・背面カメラを指定）
         let discoverySession = AVCaptureDevice.DiscoverySession(deviceTypes: [.builtInWideAngleCamera],
                                                                 mediaType: .video,
@@ -53,11 +68,11 @@ class Home: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
                         self.view.layer.addSublayer(previewLayer)
                         
                         // 読み取り可能エリアの設定を行う
-                        // 画面の横、縦に対して、左が10%、上が40%のところに、横幅80%、縦幅20%を読み取りエリアに設定
-                        let x: CGFloat = 0.1
-                        let y: CGFloat = 0.4
-                        let width: CGFloat = 0.8
-                        let height: CGFloat = 0.2
+                        // 画面の横、縦に対して、左が25%、上が35%のところに、横幅50%、縦幅30%を読み取りエリアに設定
+                        let x: CGFloat = 0.25
+                        let y: CGFloat = 0.35
+                        let width: CGFloat = 0.5
+                        let height: CGFloat = 0.3
                         metadataOutput.rectOfInterest = CGRect(x: y, y: 1 - x - width, width: height, height: width)
                         
                         // 読み取り可能エリアに赤い枠を追加する
@@ -85,21 +100,11 @@ class Home: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
         }
     }
     
-    @IBAction func onButtonWeather(_ sender: Any) {
-     
-        moveToNextPage(nextStoryboardName: "weatherPage")
-    }
-    
-    @IBAction func onButtonDB(_ sender: Any) {
+    // QRコードリーダー画面で閉じるがタップされたら画面を閉じる
+    @objc private func closeTaped(sender: UIButton) {
         
-        moveToNextPage(nextStoryboardName: "DBAccessPage")
-    }
-    
-    private func moveToNextPage(nextStoryboardName name: String) {
-        
-        let storyboard: UIStoryboard = UIStoryboard(name: name, bundle: nil)
-        let nextViewController = storyboard.instantiateInitialViewController()!
-        present(nextViewController, animated: true, completion: nil)
+        print("close button tapped!")
+        self.dismiss(animated: true, completion: nil)
     }
     
     func metadataOutput(_ output: AVCaptureMetadataOutput, didOutput metadataObjects: [AVMetadataObject], from connection: AVCaptureConnection) {
@@ -131,10 +136,11 @@ class Home: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
         }
     }
     
-    // 閉じるが押されたら呼ばれます
-    
-    @objc
-    func closeTaped(sender: UIButton) {
-        self.dismiss(animated: true, completion: nil)
+    //storyboard名を受け取り、その画面に遷移する
+    private func moveToNextPage(nextStoryboardName name: String) {
+        
+        let storyboard: UIStoryboard = UIStoryboard(name: name, bundle: nil)
+        let nextViewController = storyboard.instantiateInitialViewController()!
+        present(nextViewController, animated: true, completion: nil)
     }
 }
