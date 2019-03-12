@@ -129,7 +129,7 @@ class Home: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
 //                // QRコードに紐付いたURLをSafariで開く
 //                UIApplication.shared.open(url, options: [:], completionHandler: nil)
                 
-                moveToNextPage(nextStoryboardName: "weatherPage")
+                moveToNextPage(nextStoryboardName: "QRResultPage")
 
                 break
             }

@@ -14,5 +14,10 @@ class QRResultPage: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
     }
+    
+    @IBAction func onButtonBack(_ sender: Any) {
+        
+        self.dismiss(animated: true, completion: nil)
+    }
 }
 
