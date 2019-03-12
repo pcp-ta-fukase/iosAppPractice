@@ -103,7 +103,6 @@ class Home: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
     // QRコードリーダー画面で閉じるがタップされたら画面を閉じる
     @objc private func closeTaped(sender: UIButton) {
         
-        print("close button tapped!")
         self.dismiss(animated: true, completion: nil)
     }
     
