@@ -16,6 +16,7 @@ class DBAccessPage: UIViewController, UITableViewDelegate, UITableViewDataSource
     
     @IBOutlet weak var nameTableView: UITableView!
     
+    var ids: [Int32] = []
     var names: [String] = []
     
     override func viewDidLoad() {
@@ -70,7 +71,8 @@ class DBAccessPage: UIViewController, UITableViewDelegate, UITableViewDataSource
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath as IndexPath)
         
         // セルに表示する値（ラベルの文字など）を設定する
-        cell.textLabel!.text = names[indexPath.row]
+        cell.textLabel!.text = "\(ids[indexPath.row])"
+        cell.detailTextLabel!.text = names[indexPath.row]
         
         return cell
     }
@@ -108,6 +110,7 @@ class DBAccessPage: UIViewController, UITableViewDelegate, UITableViewDataSource
         }
         
         //tableViewに反映させる配列を更新
+        ids = user_ids
         names = user_names
         
         // データベースをクローズ
