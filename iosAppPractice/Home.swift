@@ -137,14 +137,9 @@ class Home: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
     }
 
     private func createTable() {
-        
-        // /Documentsまでのパスを取得
-        let paths = NSSearchPathForDirectoriesInDomains(.documentDirectory,.userDomainMask, true)
-        // <Application>/Documents/test.db というパスを生成
-        let _path: String? = paths[0] + "test.sqlite"
-        
+
         // FMDatabaseクラスのインスタンスを作成
-        let db = FMDatabase(path: _path)
+        let db = FMDatabase(path: CommonValue.pathForAppDB)
         
         // データベースをオープン
         if db.open() {

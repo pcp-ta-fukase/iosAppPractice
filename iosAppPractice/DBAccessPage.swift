@@ -37,7 +37,7 @@ class DBAccessPage: UIViewController, UITableViewDelegate, UITableViewDataSource
     @IBAction func onButtonSend(_ sender: Any) {
 
         //現在表示されているテキストフィールドの文字列をDBに追加
-        addInfoToDB(nameToInsert: nameTextField.text!)
+        insertUserInfoToDB(nameToInsert: nameTextField.text!)
         
         listDBInfoToTable()
         nameTableView.reloadData()
@@ -76,14 +76,9 @@ class DBAccessPage: UIViewController, UITableViewDelegate, UITableViewDataSource
     }
     
     private func listDBInfoToTable() {
-        
-        // /Documentsまでのパスを取得
-        let paths = NSSearchPathForDirectoriesInDomains(.documentDirectory,.userDomainMask, true)
-        // <Application>/Documents/test.db というパスを生成
-        let _path: String? = paths[0] + "test.sqlite"
-        
+
         // FMDatabaseクラスのインスタンスを作成
-        let db = FMDatabase(path: _path)
+        let db = FMDatabase(path: CommonValue.pathForAppDB)
         
         // データベースをオープン
         if db.open() {
@@ -118,15 +113,10 @@ class DBAccessPage: UIViewController, UITableViewDelegate, UITableViewDataSource
         db.close()
     }
     
-    private func addInfoToDB(nameToInsert: String) {
-        
-        // /Documentsまでのパスを取得
-        let paths = NSSearchPathForDirectoriesInDomains(.documentDirectory,.userDomainMask, true)
-        // <Application>/Documents/test.db というパスを生成
-        let _path: String? = paths[0] + "test.sqlite"
+    private func insertUserInfoToDB(nameToInsert: String) {
         
         // FMDatabaseクラスのインスタンスを作成
-        let db = FMDatabase(path: _path)
+        let db = FMDatabase(path: CommonValue.pathForAppDB)
         
         // データベースをオープン
         if db.open() {
