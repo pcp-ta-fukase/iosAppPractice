@@ -142,10 +142,10 @@ class Home: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
         let db = FMDatabase(path: CommonValue.pathForAppDB)
         
         // データベースをオープン
-        if db.open() {
-            print("Succeeded in opening the database.")
-        } else {
+        guard db.open() else {
+            
             print("Failed to open the database.")
+            return
         }
         
         //user_listテーブルが存在しなければ作成

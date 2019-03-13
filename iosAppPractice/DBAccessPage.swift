@@ -81,10 +81,10 @@ class DBAccessPage: UIViewController, UITableViewDelegate, UITableViewDataSource
         let db = FMDatabase(path: CommonValue.pathForAppDB)
         
         // データベースをオープン
-        if db.open() {
-            print("Succeeded in opening the database.")
-        } else {
+        guard db.open() else {
+            
             print("Failed to open the database.")
+            return
         }
         
         var user_ids: [Int32] = []
@@ -93,17 +93,18 @@ class DBAccessPage: UIViewController, UITableViewDelegate, UITableViewDataSource
         //user_listテーブルからuser_id、user_nameを取得
         let results = db.executeQuery("SELECT user_id, user_name FROM user_list;", withArgumentsIn: [])
         
-        guard let unwrappedResults = results else {
+        if let unwrappedResults = results {
             
-            print("Failed to unwrap results.")
-            return
-        }
-
-        while unwrappedResults.next() {
-            // カラム名を指定して値を取得する方法
-            user_ids.append(unwrappedResults.int(forColumn: "user_id"))
-            // カラムのインデックスを指定して取得する方法
-            user_names.append(unwrappedResults.string(forColumnIndex: 1) ?? "")
+            while unwrappedResults.next() {
+                
+                user_ids.append(unwrappedResults.int(forColumn: "user_id"))
+                user_names.append(unwrappedResults.string(forColumnIndex: 1) ?? "")
+            }
+            
+        } else {
+            
+            //ログを出力
+            print("Failed to retrieving data from database table.")
         }
         
         //tableViewに反映させる配列を更新
@@ -119,18 +120,17 @@ class DBAccessPage: UIViewController, UITableViewDelegate, UITableViewDataSource
         let db = FMDatabase(path: CommonValue.pathForAppDB)
         
         // データベースをオープン
-        if db.open() {
-            print("Succeeded in opening the database.")
-        } else {
+        guard db.open() else {
+            
             print("Failed to open the database.")
+            return
         }
         
         //引数で受け取った文字列をDBに追加
-        if db.executeUpdate("INSERT INTO user_list (user_name) VALUES (?);" , withArgumentsIn: [nameToInsert]) {
-            print("Inserting succeeded.")
-        } else {
-            print("Inserting failed.")
-        }
+        let logForInsertInfo = db.executeUpdate("INSERT INTO user_list (user_name) VALUES (?);" , withArgumentsIn: [nameToInsert]) ? "Insert succeeded." : "Insert failed."
+
+        //ログを出力
+        print(logForInsertInfo)
         
         // データベースをクローズ
         db.close()
