@@ -8,6 +8,7 @@
 
 
 import UIKit
+import FMDB
 
 class DBAccessPage: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate {
         
@@ -23,6 +24,9 @@ class DBAccessPage: UIViewController, UITableViewDelegate, UITableViewDataSource
         
         nameTextField.delegate = self        
         nameTableView.delegate = self
+        
+        listDBInfoToTable()
+        nameTableView.reloadData()
     }
     
     @IBAction func onButtonBack(_ sender: Any) {
@@ -32,9 +36,10 @@ class DBAccessPage: UIViewController, UITableViewDelegate, UITableViewDataSource
     
     @IBAction func onButtonSend(_ sender: Any) {
 
-        //現在表示されているテキストフィールドの文字列を配列に追加
-        names.append(nameTextField.text!)
+        //現在表示されているテキストフィールドの文字列をDBに追加
+        addInfoToDB(nameToInsert: nameTextField.text!)
         
+        listDBInfoToTable()
         nameTableView.reloadData()
     }
     
@@ -70,8 +75,74 @@ class DBAccessPage: UIViewController, UITableViewDelegate, UITableViewDataSource
         return cell
     }
     
-    // セルをタップした時に呼ばれる
-    func tableView(_ table: UITableView,didSelectRowAt indexPath: IndexPath) {
-        print("セルをタップしました")
+    private func listDBInfoToTable() {
+        
+        // /Documentsまでのパスを取得
+        let paths = NSSearchPathForDirectoriesInDomains(.documentDirectory,.userDomainMask, true)
+        // <Application>/Documents/test.db というパスを生成
+        let _path: String? = paths[0] + "test.sqlite"
+        
+        // FMDatabaseクラスのインスタンスを作成
+        let db = FMDatabase(path: _path)
+        
+        // データベースをオープン
+        if db.open() {
+            print("Succeeded in opening the database.")
+        } else {
+            print("Failed to open the database.")
+        }
+        
+        var user_ids: [Int32] = []
+        var user_names: [String] = []
+        
+        //user_listテーブルからuser_id、user_nameを取得
+        let results = db.executeQuery("SELECT user_id, user_name FROM user_list;", withArgumentsIn: [])
+        
+        guard let unwrappedResults = results else {
+            
+            print("Failed to unwrap results.")
+            return
+        }
+
+        while unwrappedResults.next() {
+            // カラム名を指定して値を取得する方法
+            user_ids.append(unwrappedResults.int(forColumn: "user_id"))
+            // カラムのインデックスを指定して取得する方法
+            user_names.append(unwrappedResults.string(forColumnIndex: 1) ?? "")
+        }
+        
+        //tableViewに反映させる配列を更新
+        names = user_names
+        
+        // データベースをクローズ
+        db.close()
+    }
+    
+    private func addInfoToDB(nameToInsert: String) {
+        
+        // /Documentsまでのパスを取得
+        let paths = NSSearchPathForDirectoriesInDomains(.documentDirectory,.userDomainMask, true)
+        // <Application>/Documents/test.db というパスを生成
+        let _path: String? = paths[0] + "test.sqlite"
+        
+        // FMDatabaseクラスのインスタンスを作成
+        let db = FMDatabase(path: _path)
+        
+        // データベースをオープン
+        if db.open() {
+            print("Succeeded in opening the database.")
+        } else {
+            print("Failed to open the database.")
+        }
+        
+        //引数で受け取った文字列をDBに追加
+        if db.executeUpdate("INSERT INTO user_list (user_name) VALUES (?);" , withArgumentsIn: [nameToInsert]) {
+            print("Inserting succeeded.")
+        } else {
+            print("Inserting failed.")
+        }
+        
+        // データベースをクローズ
+        db.close()
     }
 }

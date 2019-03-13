@@ -18,8 +18,8 @@ class Home: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        //TODO: DB接続の成否を確認するための関数呼び出しなので、のちに削除する
-        useFMDB()
+        //アプリ起動時にuser_listテーブルを作成
+        createTable()
     }
     
     @IBAction func onButtonQR(_ sender: Any) {
@@ -135,8 +135,8 @@ class Home: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
         let nextViewController = storyboard.instantiateInitialViewController()!
         present(nextViewController, animated: true, completion: nil)
     }
-    
-    private func useFMDB() {
+
+    private func createTable() {
         
         // /Documentsまでのパスを取得
         let paths = NSSearchPathForDirectoriesInDomains(.documentDirectory,.userDomainMask, true)
@@ -144,7 +144,6 @@ class Home: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
         let _path: String? = paths[0] + "test.sqlite"
         
         // FMDatabaseクラスのインスタンスを作成
-        // 引数にファイルまでのパスを渡す
         let db = FMDatabase(path: _path)
         
         // データベースをオープン
@@ -153,6 +152,12 @@ class Home: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
         } else {
             print("Failed to open the database.")
         }
+        
+        //user_listテーブルが存在しなければ作成
+        let logForCreatingTable = db.executeUpdate("CREATE TABLE IF NOT EXISTS user_list (user_id INTEGER PRIMARY KEY, user_name TEXT);", withArgumentsIn: []) ? "Did create table." : "Did not create table."
+
+        //ログ出力
+        print(logForCreatingTable)
         
         // データベースをクローズ
         db.close()
