@@ -8,6 +8,7 @@
 
 import UIKit
 import AVFoundation
+import FMDB
 
 class Home: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
     
@@ -16,6 +17,9 @@ class Home: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        //TODO: DB接続の成否を確認するための関数呼び出しなので、のちに削除する
+        useFMDB()
     }
     
     @IBAction func onButtonQR(_ sender: Any) {
@@ -103,7 +107,9 @@ class Home: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
     // QRコードリーダー画面で閉じるがタップされたら画面を閉じる
     @objc private func closeTaped(sender: UIButton) {
         
-        self.dismiss(animated: true, completion: nil)
+        //self.dismiss(animated: true, completion: nil)
+        //TODO: QRリーダーを別のViewControllerで表示するように変更し、ここでの記述をdismiss()に変更する
+        moveToNextPage(nextStoryboardName: "Home")
     }
     
     func metadataOutput(_ output: AVCaptureMetadataOutput, didOutput metadataObjects: [AVMetadataObject], from connection: AVCaptureConnection) {
@@ -128,5 +134,27 @@ class Home: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
         let storyboard: UIStoryboard = UIStoryboard(name: name, bundle: nil)
         let nextViewController = storyboard.instantiateInitialViewController()!
         present(nextViewController, animated: true, completion: nil)
+    }
+    
+    private func useFMDB() {
+        
+        // /Documentsまでのパスを取得
+        let paths = NSSearchPathForDirectoriesInDomains(.documentDirectory,.userDomainMask, true)
+        // <Application>/Documents/test.db というパスを生成
+        let _path: String? = paths[0] + "test.sqlite"
+        
+        // FMDatabaseクラスのインスタンスを作成
+        // 引数にファイルまでのパスを渡す
+        let db = FMDatabase(path: _path)
+        
+        // データベースをオープン
+        if db.open() {
+            print("Succeeded in opening the database.")
+        } else {
+            print("Failed to open the database.")
+        }
+        
+        // データベースをクローズ
+        db.close()
     }
 }
