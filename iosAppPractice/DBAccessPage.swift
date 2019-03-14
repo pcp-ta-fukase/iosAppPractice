@@ -17,6 +17,8 @@ class DBAccessPage: UIViewController, UITableViewDelegate, UITableViewDataSource
     
     @IBOutlet weak var nameTableView: UITableView!
     
+    var textFieldIsRed = false
+    
     var ids: [Int32] = []
     var names: [String] = []
     
@@ -51,6 +53,7 @@ class DBAccessPage: UIViewController, UITableViewDelegate, UITableViewDataSource
         guard (nameTextField.text)! != "" else {
             
             setTextFieldWithWarningColor()
+            textFieldIsRed = true
             return
         }
 
@@ -60,11 +63,15 @@ class DBAccessPage: UIViewController, UITableViewDelegate, UITableViewDataSource
         listDBInfoToTable()
         nameTableView.reloadData()
     }
-    
-    
-    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
+
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         
-        setTextFieldWithNormalColor()
+        if textFieldIsRed {
+            
+            setTextFieldWithNormalColor()
+            textFieldIsRed = false
+        }
+        
         return true
     }
     
