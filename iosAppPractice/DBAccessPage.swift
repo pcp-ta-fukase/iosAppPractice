@@ -9,6 +9,7 @@
 
 import UIKit
 import FMDB
+import CoreGraphics
 
 class DBAccessPage: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate {
         
@@ -23,9 +24,18 @@ class DBAccessPage: UIViewController, UITableViewDelegate, UITableViewDataSource
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        nameTextField.delegate = self        
+        nameTextField.delegate = self
         nameTableView.delegate = self
+
+        //テキストフィールドの表示スタイルを設定
+        nameTextField.layer.cornerRadius = 5
+        nameTextField.layer.borderWidth  = 2
+        nameTextField.layer.masksToBounds = true
         
+        //テキストフィールドに初期カラーを設定する
+        setTextFieldWithNormalColor()
+        
+        //DBに格納されているユーザー情報をテーブルビューに表示する
         listDBInfoToTable()
         nameTableView.reloadData()
     }
@@ -36,6 +46,13 @@ class DBAccessPage: UIViewController, UITableViewDelegate, UITableViewDataSource
     }
     
     @IBAction func onButtonSend(_ sender: Any) {
+        
+        //送信ボタン押下時にテキストボックスが空欄であればDBに追加せずに入力エラーとする
+        guard (nameTextField.text)! != "" else {
+            
+            setTextFieldWithWarningColor()
+            return
+        }
 
         //現在表示されているテキストフィールドの文字列をDBに追加
         insertUserInfoToDB(nameToInsert: nameTextField.text!)
@@ -44,6 +61,12 @@ class DBAccessPage: UIViewController, UITableViewDelegate, UITableViewDataSource
         nameTableView.reloadData()
     }
     
+    
+    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
+        
+        setTextFieldWithNormalColor()
+        return true
+    }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
 
@@ -137,5 +160,35 @@ class DBAccessPage: UIViewController, UITableViewDelegate, UITableViewDataSource
         
         // データベースをクローズ
         db.close()
+    }
+    
+    private func setTextFieldWithNormalColor() {
+        
+        nameTextField.backgroundColor = UIColor.hexStr(of: "#EEEEEE", alpha: 1)
+        nameTextField.layer.borderColor = UIColor.white.cgColor
+    }
+    
+    private func setTextFieldWithWarningColor() {
+        
+        nameTextField.backgroundColor = UIColor.hexStr(of: "#EBAAB3", alpha: 1)
+        nameTextField.layer.borderColor = UIColor.hexStr(of: "#F04747", alpha: 1).cgColor
+    }
+}
+
+//HEX値で色を指定できるようにUIColorを拡張
+extension UIColor {
+    class func hexStr(of hexString : NSString, alpha : CGFloat) -> UIColor {
+        let hexStr = hexString.replacingOccurrences(of: "#", with: "")
+        let scanner = Scanner(string: hexStr as String)
+        var color: UInt32 = 0
+        if scanner.scanHexInt32(&color) {
+            let r = CGFloat((color & 0xFF0000) >> 16) / 255.0
+            let g = CGFloat((color & 0x00FF00) >> 8) / 255.0
+            let b = CGFloat(color & 0x0000FF) / 255.0
+            return UIColor(red:r,green:g,blue:b,alpha:alpha)
+        } else {
+            print("invalid hex string")
+            return UIColor.white
+        }
     }
 }
