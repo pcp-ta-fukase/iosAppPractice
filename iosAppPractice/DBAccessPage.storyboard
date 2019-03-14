@@ -68,6 +68,7 @@
                                 <rect key="frame" x="12" y="76" width="200" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="200" id="bLK-he-fcj"/>
+                                    <constraint firstAttribute="height" constant="30" id="z8u-U0-6lh"/>
                                 </constraints>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -76,6 +77,9 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zrN-qn-01u">
                                 <rect key="frame" x="224" y="76" width="139" height="30"/>
                                 <color key="backgroundColor" red="0.17254901960784313" green="0.71465118838028174" blue="1" alpha="0.84705882352941175" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="oOG-z7-pIM"/>
+                                </constraints>
                                 <state key="normal" title="送信">
                                     <color key="titleColor" red="0.99923740959999996" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </state>
