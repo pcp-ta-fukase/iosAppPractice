@@ -13,7 +13,6 @@ class CommonValue {
     static var QRStringValue = ""
     
     // <Application>/Documents/test.db というパスを生成
-    static let pathForAppDB = NSSearchPathForDirectoriesInDomains(.documentDirectory,.userDomainMask, true)[0] + "test.sqlite"
-
+    static let pathForAppDB = NSSearchPathForDirectoriesInDomains(.documentDirectory,.userDomainMask, true)[0] + "test.db"
 
 }

@@ -6,6 +6,7 @@ target 'iosAppPractice' do
   use_frameworks!
 
   pod 'FMDB'
+  pod "Alamofire"
   # Pods for iosAppPractice
 
 end

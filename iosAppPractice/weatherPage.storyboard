@@ -30,19 +30,31 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I20-O4-Qg4">
+                                <rect key="frame" x="12" y="76" width="351" height="19.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.99923740959999996" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
                             <constraint firstItem="ver-qs-TJX" firstAttribute="leading" secondItem="kXm-QF-1FE" secondAttribute="leading" id="94d-Jb-QhV"/>
+                            <constraint firstItem="I20-O4-Qg4" firstAttribute="leading" secondItem="kXm-QF-1FE" secondAttribute="leading" constant="12" id="MOa-0H-eQG"/>
+                            <constraint firstItem="kXm-QF-1FE" firstAttribute="trailing" secondItem="I20-O4-Qg4" secondAttribute="trailing" constant="12" id="Qno-c1-AVr"/>
                             <constraint firstItem="ver-qs-TJX" firstAttribute="top" secondItem="kXm-QF-1FE" secondAttribute="top" id="e7c-5f-aVw"/>
                             <constraint firstItem="ver-qs-TJX" firstAttribute="trailing" secondItem="kXm-QF-1FE" secondAttribute="trailing" id="kxn-4I-J3R"/>
+                            <constraint firstItem="I20-O4-Qg4" firstAttribute="top" secondItem="ver-qs-TJX" secondAttribute="bottom" constant="12" id="xDS-DK-hS5"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="kXm-QF-1FE"/>
                     </view>
+                    <connections>
+                        <outlet property="weatherResultLabel" destination="I20-O4-Qg4" id="Ot8-Je-hoJ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9o5-Fn-PE3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="228" y="123"/>
+            <point key="canvasLocation" x="228" y="122.78860569715144"/>
         </scene>
     </scenes>
 </document>
